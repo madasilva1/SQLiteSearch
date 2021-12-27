@@ -9,6 +9,9 @@ import android.widget.Toast;
 
 import android.os.Bundle;
 
+/**
+ * testao
+ */
 public class MainActivity extends AppCompatActivity {
     // creating variables for our edittext, button and dbhandler
     private EditText courseNameEdt, courseTracksEdt, courseDurationEdt, courseDescriptionEdt;
