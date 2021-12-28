@@ -10,7 +10,7 @@ import android.widget.Toast;
 import android.os.Bundle;
 
 /**
- * testao
+ * this application it's on SQLitesearch on github  
  */
 public class MainActivity extends AppCompatActivity {
     // creating variables for our edittext, button and dbhandler
