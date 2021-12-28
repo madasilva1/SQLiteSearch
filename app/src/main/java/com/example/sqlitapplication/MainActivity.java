@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,7 +19,7 @@ import android.os.Bundle;
 public class MainActivity extends AppCompatActivity {
     // creating variables for our edittext, button and dbhandler
     private EditText courseNameEdt, courseTracksEdt, courseDurationEdt, courseDescriptionEdt;
-    private Button addCourseBtn,readCourseBtn;
+    private Button addCourseBtn, readCourseBtn;
     private DBHandler dbHandler;
 
     @Override
@@ -31,8 +33,10 @@ public class MainActivity extends AppCompatActivity {
         courseDescriptionEdt = findViewById(R.id.idEdtCourseDescription);
         addCourseBtn = findViewById(R.id.idBtnAddCourse);
         readCourseBtn = findViewById(R.id.idBtnReadCourse);
-        // creating a new dbhandler class
+
+        // creating a new dbhandler instance
         // and passing our context to it.
+
         dbHandler = new DBHandler(MainActivity.this);
 
         // below line is to add on click listener for our add course button.
@@ -72,7 +76,24 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
 
+
+
+
+    public boolean OnCreateOptionMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
 
     }
 }
