@@ -1,6 +1,8 @@
 package com.example.sqlitapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +17,7 @@ import android.os.Bundle;
 public class MainActivity extends AppCompatActivity {
     // creating variables for our edittext, button and dbhandler
     private EditText courseNameEdt, courseTracksEdt, courseDurationEdt, courseDescriptionEdt;
-    private Button addCourseBtn;
+    private Button addCourseBtn,readCourseBtn;
     private DBHandler dbHandler;
 
     @Override
@@ -62,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 courseDescriptionEdt.setText("");
             }
         });
+
     }
 }
 
