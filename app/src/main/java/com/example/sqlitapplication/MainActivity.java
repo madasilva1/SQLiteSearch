@@ -64,6 +64,14 @@ public class MainActivity extends AppCompatActivity {
                 courseDescriptionEdt.setText("");
             }
         });
+        readCourseBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // opening a new activity via a intent.
+                Intent i = new Intent(MainActivity.this, ViewCourses.class);
+                startActivity(i);
+            }
+        });
 
 
     }
