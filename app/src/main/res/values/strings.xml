@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">SQLITApplication</string>
+    <string name="hint_search">hint_search</string>
+    <string name="button_save">button_save</string>
+    <string name="search">search</string>
 </resources>

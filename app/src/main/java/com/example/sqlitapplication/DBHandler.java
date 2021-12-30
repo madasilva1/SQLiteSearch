@@ -4,6 +4,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.nfc.Tag;
+import android.util.Log;
+
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
@@ -154,6 +158,25 @@ public class DBHandler extends SQLiteOpenHelper {
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
             onCreate(db);
         }
+
+
+    public Cursor search(String searchString) {
+        String[] columns = new String[]{ID_COL};
+        searchString = "%" + searchString + "%";
+        String where = ID_COL + " LIKE ?";
+        String[]whereArgs = new String[]{searchString};
+        SQLiteDatabase mReadableDB = this.getReadableDatabase();
+        Cursor cursor = null;
+
+        try {
+            if (mReadableDB == null) {mReadableDB = getReadableDatabase();}
+            cursor = mReadableDB.query(TABLE_NAME, columns, where, whereArgs, null, null, null);
+        } catch (Exception e) {
+          //  Log.d(TAG, "SEARCH EXCEPTION! " + e);
+        }
+
+        return cursor;
     }
+}
 
 

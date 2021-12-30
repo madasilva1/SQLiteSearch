@@ -12,11 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SQLITApplication">
         <activity
+            android:name=".SearchActivity"
+            android:exported="false" />
+        <activity
             android:name=".UpdateCourseActivity"
             android:exported="false" />
         <activity
             android:name=".ViewCourses"
             android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

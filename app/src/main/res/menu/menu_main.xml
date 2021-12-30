@@ -10,8 +10,8 @@
     </item>
 
     <item
-        android:title="Settings"
-        android:id="@+id/action_settings"
+        android:title="Search..."
+        android:id="@+id/action_search"
         app:showAsAction="never">
     </item>
 

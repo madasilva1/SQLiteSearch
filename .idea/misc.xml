@@ -5,7 +5,8 @@
       <map>
         <entry key="..\:/Users/madas/AndroidStudioProjects/SQLITApplication/app/src/main/res/drawable/ic_ad.xml" value="0.2703125" />
         <entry key="..\:/Users/madas/AndroidStudioProjects/SQLITApplication/app/src/main/res/layout/acativity_view_course.xml" value="0.1" />
-        <entry key="..\:/Users/madas/AndroidStudioProjects/SQLITApplication/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/madas/AndroidStudioProjects/SQLITApplication/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/madas/AndroidStudioProjects/SQLITApplication/app/src/main/res/layout/activity_search.xml" value="0.264" />
         <entry key="..\:/Users/madas/AndroidStudioProjects/SQLITApplication/app/src/main/res/layout/activity_update_course.xml" value="0.1" />
         <entry key="..\:/Users/madas/AndroidStudioProjects/SQLITApplication/app/src/main/res/layout/activity_view_course.xml" value="0.2" />
         <entry key="..\:/Users/madas/AndroidStudioProjects/SQLITApplication/app/src/main/res/layout/course_rv_item.xml" value="0.2" />
