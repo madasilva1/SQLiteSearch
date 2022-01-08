@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SearchActivity extends AppCompatActivity {
 private static  final String TAG = SearchActivity.class.getSimpleName();
@@ -27,7 +28,7 @@ private Button search;
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                Toast.makeText(SearchActivity.this, "Hello Search Activity", Toast.LENGTH_SHORT).show();
             }
         });
     }
