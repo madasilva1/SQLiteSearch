@@ -38,8 +38,8 @@ public class DBHandler extends SQLiteOpenHelper {
 
         // below variable is for our course tracks column.
         private static final String TRACKS_COL = "tracks";
-
-        // creating a constructor for our database handler.
+    private static final String KEY_WORD = null;
+    // creating a constructor for our database handler.
         public DBHandler(Context context) {
             super(context, DB_NAME, null, DB_VERSION);
         }
@@ -160,19 +160,21 @@ public class DBHandler extends SQLiteOpenHelper {
         }
 
 
+
+
     public Cursor search(String searchString) {
-        String[] columns = new String[]{ID_COL};
+        String[] columns = new String[]{KEY_WORD};
         searchString = "%" + searchString + "%";
-        String where = ID_COL + " LIKE ?";
+        String where = KEY_WORD + " LIKE ?";
         String[]whereArgs = new String[]{searchString};
         SQLiteDatabase mReadableDB = this.getReadableDatabase();
         Cursor cursor = null;
 
         try {
             if (mReadableDB == null) {mReadableDB = getReadableDatabase();}
-            cursor = mReadableDB.query(TABLE_NAME, columns, where, whereArgs, null, null, null);
+            cursor = mReadableDB.rawQuery("select *  from " + TABLE_NAME,null);
         } catch (Exception e) {
-          //  Log.d(TAG, "SEARCH EXCEPTION! " + e);
+            //  Log.d(TAG, "SEARCH EXCEPTION! " + e);
         }
 
         return cursor;

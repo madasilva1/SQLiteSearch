@@ -2,7 +2,9 @@ package com.example.sqlitapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,49 +13,52 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class SearchActivity extends AppCompatActivity {
-private static  final String TAG = SearchActivity.class.getSimpleName();
-private TextView mTextView;
-private EditText mEditWordView;
-private DBHandler mDB;
-private Button search;
+    private static final String KEY_WORD
+            = null;
+    private Button searchButton;
+DBHandler mDB;
+private TextView search;
+private EditText enterText;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        mEditWordView = (EditText) findViewById(R.id.search_resulted);
-        mTextView = ((TextView) findViewById(R.id.action_search));
-        mDB = new DBHandler(this);
-        search = findViewById(R.id.button_search);
-        search.setOnClickListener(new View.OnClickListener() {
+        searchButton = findViewById(R.id.button_search);
+        searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(SearchActivity.this, "Hello Search Activity", Toast.LENGTH_SHORT).show();
+              //we should call showResulted class here, but isn't work
             }
+
         });
-    }
-    public void showResulted(View view){
-        String word = mEditWordView.getText().toString();
-        mTextView.setText("Resulted for " + word + ": \n\n");
-        // Search for the word in the database.
+search = ((TextView) findViewById(R.id.mysearch));
+enterText = ((EditText) findViewById(R.id.search_resulted));
+}
+public void showResulted( ){
+        String[] columns = new String[]{KEY_WORD};
+        String word = enterText.getText().toString();
+        search.setText("Resulted for "+ word + ":\n\n");
         Cursor cursor = mDB.search(word);
-        // Only process a non-null cursor with rows.
-        if (cursor != null & cursor.getCount() > 0) {
-            // You must move the cursor to the first item.
+        if(cursor != null && cursor.getCount()>0 ){
             cursor.moveToFirst();
             int index;
-            String result;
-            // Iterate over the cursor, while there are entries.
-            do {
-                // Don't guess at the column index.
-                // Get the index for the named column.
-                index = cursor.getColumnIndex(mDB.getDatabaseName());
-                // Get the value from the column for the current cursor.
-                result = cursor.getString(index);
-                // Add result to what's already in the text view.
-                mTextView.append(result + "\n");
-            } while (cursor.moveToNext()); // Returns true or false
+            String resulted;
+            do{
+
+                index = cursor.getColumnIndex("ID_COLUMN");
+                resulted = cursor.getString(index);
+                enterText.append(resulted + "\n");
+
+
+            }while (cursor.moveToNext());
             cursor.close();
-        } // You should add some handling of null case. Right now, nothing happens.
-    }
-    }
+        }
+
+
+
+
+}
+}

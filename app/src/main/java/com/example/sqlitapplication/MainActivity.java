@@ -2,6 +2,7 @@ package com.example.sqlitapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText courseNameEdt, courseTracksEdt, courseDurationEdt, courseDescriptionEdt;
     private Button addCourseBtn, readCourseBtn;
     private DBHandler dbHandler;
-
+    public static final String KEY_WORD = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,10 +93,12 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_search:
-                Intent intent = new Intent(getBaseContext(),SearchActivity.class);
+
+                Intent intent = new Intent(MainActivity.this,SearchActivity.class);
                 startActivity(intent);
                 return true;
         }
+
         return super.onOptionsItemSelected(item);
 
     }
